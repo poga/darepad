@@ -8,7 +8,7 @@ exports.parseFile = (file, options, cb) ->
   md = marked text
   h <- scan-hierarchy md
   list <- build-hierarchy-list h
-  err, html <- jade.renderFile options.layoutFile, body: list+md, pretty: true
+  err, html <- jade.renderFile options.layoutFile, content: md, menu: list, pretty: true
   err <- fs.writeFile options.outputFile, html
   console.log err if err
 
