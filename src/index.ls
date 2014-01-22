@@ -1,21 +1,22 @@
 require! fs
 require! htmlparser2
 require! marked
-require! swig
+require! jade
 
 exports.parseFile = (file, options, cb) ->
   err, text <- fs.readFile file, \utf8
   md = marked text
   h <- scan-hierarchy md
   list <- build-hierarchy-list h
-  err, tmpl <- fs.readFile options.layoutFile, \utf8
-  cb swig.render tmpl, locals: body: list+md
+  err, html <- jade.renderFile options.layoutFile, body: list+md, pretty: true
+  err <- fs.writeFile options.outputFile, html
+  console.log err if err
 
 scan-hierarchy = (md, cb) ->
   hierarchies = []
   stack = ['']
   is-header = false
-  parser = new htmlparser2.Parser {
+  parser = new htmlparser2.Parser do
     onopentag: (n, attr) ->
       if m = n is /h(\d)+/
         for i til stack.length - m[1] then stack.pop!
@@ -26,7 +27,6 @@ scan-hierarchy = (md, cb) ->
       if is-header
         hierarchies[*-1].name = t
         is-header := false
-  }
   parser.write md
   cb? hierarchies
 
