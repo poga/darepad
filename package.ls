@@ -15,7 +15,7 @@ scripts:
   prepublish: """
     lsc -cj package.ls &&
     lsc -bc -o lib src
-    lsc -bc -o assets/javascript assets/ls/leve1up.ls
+    lsc -bc app/leve1up.ls
   """
 engines: {node: '*'}
 dependencies:

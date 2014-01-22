@@ -17,7 +17,7 @@
     "url": "git://github.com/poga/leve1up.git"
   },
   "scripts": {
-    "prepublish": "lsc -cj package.ls &&\nlsc -bc -o lib src\nlsc -bc -o assets/javascript assets/ls/leve1up.ls"
+    "prepublish": "lsc -cj package.ls &&\nlsc -bc -o lib src\nlsc -bc app/leve1up.ls"
   },
   "engines": {
     "node": "*"
