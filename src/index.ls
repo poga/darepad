@@ -1,16 +1,19 @@
 require! fs
+require! path
 require! htmlparser2
 require! marked
 require! jade
+{ncp} = require \ncp
 
 exports.parseFile = (file, options, cb) ->
   err, text <- fs.readFile file, \utf8
   md = marked text
   h <- scan-hierarchy md
   list <- build-hierarchy-list h
-  err, html <- jade.renderFile options.layoutFile, content: md, menu: list, pretty: true
-  err <- fs.writeFile options.outputFile, html
-  console.log err if err
+  err, html <- jade.renderFile options.theme, content: md, menu: list, pretty: true
+  err <- ncp path.dirname(options.theme), options.output
+  err <- fs.writeFile "#{options.output}/#{path.basename(options.theme, \.jade)}.html", html
+  console.log err.message if err
 
 scan-hierarchy = (md, cb) ->
   hierarchies = []

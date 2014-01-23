@@ -22,5 +22,6 @@ dependencies:
   htmlparser2: \3.4.0
   marked: \0.3.0
   jade: \1.1.5
+  ncp: \0.5.0
 devDependencies:
   LiveScript: \1.2.x
