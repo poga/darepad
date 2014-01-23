@@ -68,6 +68,68 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 /* line 9, ../sass/screen.sass */
+* {
+  box-sizing: border-box;
+}
+
+/* line 12, ../sass/screen.sass */
+body {
+  color: #333333;
+  font-size: 22px;
+  margin-bottom: 30px;
+  font-family: "Noto Serif", serif;
+  line-height: 1.42857;
+}
+
+/* line 19, ../sass/screen.sass */
+a {
+  text-decoration: none;
+  color: #7ca1e8;
+}
+/* line 22, ../sass/screen.sass */
+a:hover {
+  color: #3b72dd;
+  text-decoration: underline;
+}
+
+/* line 26, ../sass/screen.sass */
+.content {
+  margin-top: 20px;
+  padding: 0 15px;
+}
+/* line 29, ../sass/screen.sass */
+.content p {
+  color: #333333;
+  font-size: 22px;
+  margin-bottom: 30px;
+  font-family: "Noto Serif", serif;
+  line-height: 1.4;
+  margin: 0 0 10px;
+}
+
+/* line 37, ../sass/screen.sass */
+h1, h2, h3, h4 {
+  color: #002b36;
+  font-family: "PT Sans Caption", sans-serif;
+  line-height: 1.1;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* line 44, ../sass/screen.sass */
 h1 {
-  color: red;
+  font-size: 53px;
+}
+
+/* line 47, ../sass/screen.sass */
+h2 {
+  font-size: 32px;
+}
+
+/* line 51, ../sass/screen.sass */
+.menu li {
+  color: #666666;
+  font-size: 12px;
+  padding: 4px 0;
+  font-family: "PT Sans Caption", sans-serif;
 }

@@ -2,7 +2,7 @@
 
 VARIABLE = {{VARIABLE}}
 
-<checkbox for="check_variable" label="checkbox for 'check_variable"></checkbox>
+<checkbox for="check_variable" label="checkbox for 'check_variable'"></checkbox>
 
 check_variable = {{check_variable}}
 
