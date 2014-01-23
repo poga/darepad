@@ -74,6 +74,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /* line 12, ../sass/screen.sass */
 body {
+  padding-top: 30px;
   color: #333333;
   font-size: 22px;
   margin-bottom: 30px;
@@ -81,20 +82,19 @@ body {
   line-height: 1.42857;
 }
 
-/* line 19, ../sass/screen.sass */
+/* line 20, ../sass/screen.sass */
 a {
   text-decoration: none;
   color: #7ca1e8;
 }
-/* line 22, ../sass/screen.sass */
+/* line 23, ../sass/screen.sass */
 a:hover {
   color: #3b72dd;
   text-decoration: underline;
 }
 
-/* line 26, ../sass/screen.sass */
+/* line 27, ../sass/screen.sass */
 .content {
-  margin-top: 20px;
   padding: 0 15px;
 }
 /* line 29, ../sass/screen.sass */
@@ -122,20 +122,19 @@ h1, h2, h3, h4 {
 
 /* line 46, ../sass/screen.sass */
 h1 {
-  margin-top: 20px;
   font-size: 53px;
 }
 
-/* line 50, ../sass/screen.sass */
+/* line 49, ../sass/screen.sass */
 h2 {
   font-size: 32px;
 }
 
-/* line 53, ../sass/screen.sass */
+/* line 52, ../sass/screen.sass */
 .menu {
-  padding-top: 50px;
+  margin: 10px;
 }
-/* line 55, ../sass/screen.sass */
+/* line 54, ../sass/screen.sass */
 .menu li {
   color: #666666;
   font-size: 12px;
@@ -143,7 +142,7 @@ h2 {
   font-family: "PT Sans Caption", sans-serif;
 }
 
-/* line 61, ../sass/screen.sass */
+/* line 60, ../sass/screen.sass */
 .progress {
   margin-bottom: 20px;
 }
