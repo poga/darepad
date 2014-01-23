@@ -6,9 +6,10 @@ app.directive('textInput', function($rootScope){
     restrict: 'E',
     replace: true,
     scope: {
-      v: '=for'
+      v: '=for',
+      placeholder: '@'
     },
-    template: '<input type="text" ng-model="v"/>',
+    template: '<div class="ui large input"><input type="text" ng-model="v" placeholder="{{placeholder}}"/></input>',
     link: function(scope, elm, attrs){
       scope.completed = false;
       $rootScope.maxProgress += 1;

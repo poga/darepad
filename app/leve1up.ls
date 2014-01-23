@@ -5,7 +5,8 @@ app.directive \textInput ($rootScope) ->
     replace: true
     scope:
       v: \=for
-    template: '<input type="text" ng-model="v"/>'
+      placeholder: \@
+    template: '<div class="ui large input"><input type="text" ng-model="v" placeholder="{{placeholder}}"/></input>'
     link: (scope, elm, attrs) ->
       scope.completed = false
       $rootScope.maxProgress += 1

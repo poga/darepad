@@ -1,4 +1,4 @@
-<text-input for="VARIABLE"></text-input>
+<text-input for="VARIABLE" placeholder="set VARIABLE here"></text-input>
 
 VARIABLE = {{VARIABLE}}
 
