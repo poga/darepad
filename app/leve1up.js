@@ -13,7 +13,7 @@ app.directive('textInput', function($rootScope){
     link: function(scope, elm, attrs){
       scope.completed = false;
       $rootScope.maxProgress += 1;
-      return $(elm).on("change paste keyup", function(){
+      return $(elm).children('input').on("change paste keyup", function(){
         if ($(this).val() !== "" && !scope.completed) {
           $rootScope.$apply(function(){
             return $rootScope.progress += 1;

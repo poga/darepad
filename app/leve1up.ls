@@ -10,7 +10,7 @@ app.directive \textInput ($rootScope) ->
     link: (scope, elm, attrs) ->
       scope.completed = false
       $rootScope.maxProgress += 1
-      $(elm).on "change paste keyup", ->
+      $(elm).children(\input).on "change paste keyup", ->
         if $(this).val! != "" and not scope.completed
           $rootScope.$apply -> $rootScope.progress += 1
           scope.completed = true
