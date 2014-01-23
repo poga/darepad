@@ -101,13 +101,17 @@ a:hover {
 .content p {
   color: #333333;
   font-size: 22px;
+  margin: 0 0 10px;
   margin-bottom: 30px;
   font-family: "Noto Serif", serif;
   line-height: 1.4;
-  margin: 0 0 10px;
+}
+/* line 36, ../sass/screen.sass */
+.content .checkbox {
+  margin-bottom: 10px;
 }
 
-/* line 37, ../sass/screen.sass */
+/* line 39, ../sass/screen.sass */
 h1, h2, h3, h4 {
   color: #002b36;
   font-family: "PT Sans Caption", sans-serif;
@@ -116,20 +120,30 @@ h1, h2, h3, h4 {
   margin-bottom: 10px;
 }
 
-/* line 44, ../sass/screen.sass */
+/* line 46, ../sass/screen.sass */
 h1 {
+  margin-top: 20px;
   font-size: 53px;
 }
 
-/* line 47, ../sass/screen.sass */
+/* line 50, ../sass/screen.sass */
 h2 {
   font-size: 32px;
 }
 
-/* line 51, ../sass/screen.sass */
+/* line 53, ../sass/screen.sass */
+.menu {
+  padding-top: 50px;
+}
+/* line 55, ../sass/screen.sass */
 .menu li {
   color: #666666;
   font-size: 12px;
   padding: 4px 0;
   font-family: "PT Sans Caption", sans-serif;
+}
+
+/* line 61, ../sass/screen.sass */
+.progress {
+  margin-bottom: 20px;
 }

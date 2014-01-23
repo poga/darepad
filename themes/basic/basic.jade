@@ -12,9 +12,13 @@ html(ng-app="leve1up")
     link(rel="stylesheet" href="./stylesheets/semantic.min.css")
     script(src="./javascript/leve1up.js")
   body(ng-controller="leve1upCtrl")
-    progress-bar
-    .menu
-      !{ menu }
-    .content
-      !{ content }
+    .ui.grid
+      .two.wide.column
+      .two.wide.column
+        .menu
+          progress-bar
+          !{ menu }
+      .seven.wide.column
+        .content
+          !{ content }
 

@@ -38,7 +38,7 @@ app.directive('checkbox', function($rootScope){
       label: '@',
       id: '@for'
     },
-    template: '<div class="ui big checkbox"><input id="{{id}}" type="checkbox" ng-model="v" /><label for="{{id}}">{{label}}</label></div>',
+    template: '<div class="ui huge checkbox"><input id="{{id}}" type="checkbox" ng-model="v" /><label for="{{id}}">{{label}}</label></div>',
     link: function(scope, elm, attrs){
       $rootScope.maxProgress += 1;
       return elm.change(function(it){
