@@ -10,7 +10,6 @@ app.directive \textInput ($rootScope) ->
       scope.completed = false
       $rootScope.maxProgress += 1
       $(elm).on "change paste keyup", ->
-        console.log \val, $(this).val!
         if $(this).val! != "" and not scope.completed
           $rootScope.$apply -> $rootScope.progress += 1
           scope.completed = true
@@ -25,7 +24,8 @@ app.directive \checkbox ($rootScope) ->
     scope:
       v: \=for
       label: \@
-    template: '<label><input type="checkbox" ng-model="v" />{{label}}</label>'
+      id: \@for
+    template: '<div class="ui huge checkbox"><input id="{{id}}" type="checkbox" ng-model="v" /><label for="{{id}}">{{label}}</label></div>'
     link: (scope, elm, attrs) ->
       $rootScope.maxProgress += 1
       elm.change ->
@@ -51,4 +51,3 @@ leve1upCtrl = ($rootScope) !->
 
   $rootScope.$watch \progress ->
     $rootScope.percentage = $rootScope.progress / $rootScope.maxProgress * 100
-    console.log $rootScope.percentage

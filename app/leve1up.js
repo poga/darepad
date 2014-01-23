@@ -13,7 +13,6 @@ app.directive('textInput', function($rootScope){
       scope.completed = false;
       $rootScope.maxProgress += 1;
       return $(elm).on("change paste keyup", function(){
-        console.log('val', $(this).val());
         if ($(this).val() !== "" && !scope.completed) {
           $rootScope.$apply(function(){
             return $rootScope.progress += 1;
@@ -35,9 +34,10 @@ app.directive('checkbox', function($rootScope){
     replace: true,
     scope: {
       v: '=for',
-      label: '@'
+      label: '@',
+      id: '@for'
     },
-    template: '<label><input type="checkbox" ng-model="v" />{{label}}</label>',
+    template: '<div class="ui huge checkbox"><input id="{{id}}" type="checkbox" ng-model="v" /><label for="{{id}}">{{label}}</label></div>',
     link: function(scope, elm, attrs){
       $rootScope.maxProgress += 1;
       return elm.change(function(it){
@@ -62,7 +62,6 @@ leve1upCtrl = function($rootScope){
   $rootScope.progress = 0;
   $rootScope.maxProgress = 0;
   $rootScope.$watch('progress', function(){
-    $rootScope.percentage = $rootScope.progress / $rootScope.maxProgress * 100;
-    return console.log($rootScope.percentage);
+    return $rootScope.percentage = $rootScope.progress / $rootScope.maxProgress * 100;
   });
 };
