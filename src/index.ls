@@ -39,11 +39,10 @@ build-hierarchy-list = (hierarchies, cb) ->
   current-deep = 0
   for h in hierarchies
     if h.d < current-deep
-      list += \</ul>
-      current-deep -= 1
+      list += \</ul> * (current-deep - h.d)
     else if h.d > current-deep
-      list += \<ul>
-      current-deep += 1
+      list += \<ul> * (h.d - current-deep)
+    current-deep += (h.d - current-deep)
     list += "<li><a href='\##{h.id}'>#{h.name}</a><br /></li>"
   list += \</ul>
   cb? list
