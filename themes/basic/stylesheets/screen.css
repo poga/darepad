@@ -131,18 +131,31 @@ h2 {
 }
 
 /* line 52, ../sass/screen.sass */
+h3 {
+  font-size: 25px;
+}
+
+/* line 55, ../sass/screen.sass */
 .menu {
   margin: 10px;
 }
-/* line 54, ../sass/screen.sass */
-.menu li {
+/* line 57, ../sass/screen.sass */
+.menu ul {
   color: #666666;
-  font-size: 12px;
-  padding: 4px 0;
+  font-size: 16px;
+  margin: 4px 0;
   font-family: "PT Sans Caption", sans-serif;
 }
+/* line 62, ../sass/screen.sass */
+.menu ul ul {
+  padding-left: 20px;
+}
+/* line 64, ../sass/screen.sass */
+.menu ul ul ul {
+  padding-left: 20px;
+}
 
-/* line 60, ../sass/screen.sass */
+/* line 67, ../sass/screen.sass */
 .progress {
   margin-bottom: 20px;
 }
