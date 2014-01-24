@@ -46,9 +46,9 @@ app.directive \progressBar ->
     </div>
     """
 
-leve1upCtrl = ($rootScope) !->
-  $rootScope.progress = 0
-  $rootScope.maxProgress = 0
+app.controller \leve1upCtrl, ($rootScope) !->
+  $rootScope.progress ||= 0
+  $rootScope.maxProgress ||= 0
 
   $rootScope.$watch \progress ->
     $rootScope.percentage = $rootScope.progress / $rootScope.maxProgress * 100
