@@ -109,9 +109,10 @@ a:hover {
 /* line 36, ../sass/screen.sass */
 .content .checkbox {
   margin-bottom: 10px;
+  font-weight: bold;
 }
 
-/* line 39, ../sass/screen.sass */
+/* line 40, ../sass/screen.sass */
 h1, h2, h3, h4 {
   color: #002b36;
   font-family: "PT Sans Caption", sans-serif;
@@ -120,42 +121,42 @@ h1, h2, h3, h4 {
   margin-bottom: 10px;
 }
 
-/* line 46, ../sass/screen.sass */
+/* line 47, ../sass/screen.sass */
 h1 {
   font-size: 53px;
 }
 
-/* line 49, ../sass/screen.sass */
+/* line 50, ../sass/screen.sass */
 h2 {
   font-size: 32px;
 }
 
-/* line 52, ../sass/screen.sass */
+/* line 53, ../sass/screen.sass */
 h3 {
   font-size: 25px;
 }
 
-/* line 55, ../sass/screen.sass */
+/* line 56, ../sass/screen.sass */
 .menu {
   margin: 10px;
 }
-/* line 57, ../sass/screen.sass */
+/* line 58, ../sass/screen.sass */
 .menu ul {
   color: #666666;
   font-size: 16px;
   margin: 4px 0;
   font-family: "PT Sans Caption", sans-serif;
 }
-/* line 62, ../sass/screen.sass */
+/* line 63, ../sass/screen.sass */
 .menu ul ul {
   padding-left: 20px;
 }
-/* line 64, ../sass/screen.sass */
+/* line 65, ../sass/screen.sass */
 .menu ul ul ul {
   padding-left: 20px;
 }
 
-/* line 67, ../sass/screen.sass */
+/* line 68, ../sass/screen.sass */
 .progress {
   margin-bottom: 20px;
 }
