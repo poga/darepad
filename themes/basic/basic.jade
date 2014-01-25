@@ -18,9 +18,17 @@ html(ng-app="leve1up")
     .ui.stackable.grid
       .two.wide.column
       .two.wide.column
-        .menu
+        .side
+          p
+            a(href="https://twitter.com/share" class="twitter-share-button" data-size="large") Tweet
+            script.
+              !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
           progress-bar
           !{ menu }
+          p
+            | Powered by 
+            a(href="http://github.com/poga/leve1up") leve1up
+            , markdown, and angularjs
       .seven.wide.column
         .content
           !{ content }

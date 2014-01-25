@@ -11,7 +11,9 @@ exports.parseFile = (file, options, cb) ->
   h, title <- scan-hierarchy md
   list <- build-hierarchy-list h
   err, html <- jade.renderFile options.theme, content: md, menu: list, title: title, pretty: true
+  console.log err.message if err
   err <- ncp path.dirname(options.theme), options.output
+  console.log err.message if err
   fs.createReadStream('app/leve1up.js').pipe(fs.createWriteStream("#{options.output}/javascript/leve1up.js"))
   err <- fs.writeFile "#{options.output}/#{path.basename(options.theme, \.jade)}.html", html
   console.log err.message if err
