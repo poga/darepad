@@ -1,54 +1,45 @@
-app = angular.module \leve1up, []
-app.directive \textInput ($rootScope) ->
-  return
-    restrict: \E
-    replace: true
-    scope:
-      v: \=for
-      placeholder: \@
-    template: '<div class="ui large input"><input type="text" ng-model="v" placeholder="{{placeholder}}"/></input>'
-    link: (scope, elm, attrs) ->
-      scope.completed = false
-      $rootScope.maxProgress += 1
-      $(elm).children(\input).on "change paste keyup", ->
-        if $(this).val! != "" and not scope.completed
-          $rootScope.$apply -> $rootScope.progress += 1
-          scope.completed = true
-        else if $(this).val! == ""
-          $rootScope.$apply -> $rootScope.progress -= 1
-          scope.completed = false
+app = angular.module \leve1up, [\angularLocalStorage]
+app.directive \textInput ->
+  restrict: \E
+  scope:
+    v: \=for
+    placeholder: \@
+    actionItemId: \@for
+  template: '<div class="ui large input"><input type="text" ng-model="v" placeholder="{{placeholder}}"/></input>'
+  controller: ($scope, $rootScope) ->
+    $rootScope.registerAction $scope.actionItemId
 
-app.directive \checkbox ($rootScope) ->
-  return
-    restrict: \E
-    replace: true
-    scope:
-      v: \=for
-      label: \@
-      id: \@for
-    template: '<div class="ui huge checkbox"><input id="{{id}}" type="checkbox" ng-model="v" /><label for="{{id}}">{{label}}</label></div>'
-    link: (scope, elm, attrs) ->
-      $rootScope.maxProgress += 1
-      elm.change ->
-        if $(it.target).prop \checked
-          $rootScope.progress += 1
-        else
-          $rootScope.progress -= 1
+app.directive \checkbox ->
+  restrict: \E
+  scope:
+    v: \=for
+    label: \@
+    actionItemId: \@for
+  template: '<div class="ui huge checkbox"><input id="{{actionItemId}}" type="checkbox" ng-model="v" /><label for="{{actionItemId}}">{{label}}</label></div>'
+  controller: ($scope, $rootScope) ->
+    $rootScope.registerAction $scope.actionItemId
 
 app.directive \progressBar ->
-  return
-    restrict: \E
-    replace: true
-    scope: true
-    template: """
-    <div class="ui successful progress">
-      <div class="bar" style="width:{{percentage}}%"></div>
-    </div>
-    """
+  restrict: \E
+  template: """
+  <div class="ui successful progress">
+    <div class="bar" style="width:{{percentage}}%"></div>
+  </div>
+  """
 
-app.controller \leve1upCtrl, ($rootScope) !->
-  $rootScope.progress ||= 0
-  $rootScope.maxProgress ||= 0
+app.controller \leve1upCtrl, ($rootScope, storage) !->
+  storage.bind $rootScope, 'actions'
+  $rootScope.actions ||= {}
 
-  $rootScope.$watch \progress ->
-    $rootScope.percentage = $rootScope.progress / $rootScope.maxProgress * 100
+  $rootScope.registerAction = (id) ->
+    varName = id.replace "actions.", ""
+    $rootScope.actions <<< { "#{varName}": void } if not $rootScope.actions[varName]
+
+  $rootScope.$watch \actions ->
+    max = 0
+    completed = 0
+    for k, v of $rootScope.actions
+      max += 1
+      completed += 1 if v and v != "" and v != false
+    $rootScope.percentage = completed / max * 100
+  , true
