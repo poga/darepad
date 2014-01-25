@@ -184,13 +184,14 @@ h3 {
   position: fixed;
   width: inherit;
   margin-top: 0;
+  padding-right: 30px;
 }
-/* line 89, ../sass/screen.sass */
+/* line 90, ../sass/screen.sass */
 .pad .firepad {
   margin-top: 100px;
   height: 600px;
 }
-/* line 90, ../sass/screen.sass */
+/* line 91, ../sass/screen.sass */
 .pad .firepad .CodeMirror {
   background: transparent;
   margin: 20px;
