@@ -7,7 +7,16 @@ require! jade
 
 exports.parseFile = (file, options, cb) ->
   err, text <- fs.readFile file, \utf8
-  md = marked text
+  # override renderer to generate custom header id
+  stack = []
+  renderer = new marked.Renderer!
+  renderer.heading = (text, level) ->
+    for i to stack.length - level then stack.pop!
+    stack.push text
+    header-id = stack.join(\-).replace(/ /g, "")
+    return "<h#level id='#header-id'>#text</h#level>"
+
+  md = marked text, renderer: renderer
   h, title <- scan-hierarchy md
   list <- build-hierarchy-list h
   err, html <- jade.renderFile options.theme, content: md, menu: list, title: title, pretty: true
