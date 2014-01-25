@@ -24,7 +24,7 @@ exports.parseFile = (file, options, cb) ->
   err <- ncp path.dirname(options.theme), options.output
   console.log err.message if err
   fs.createReadStream('app/leve1up.js').pipe(fs.createWriteStream("#{options.output}/javascript/leve1up.js"))
-  err <- fs.writeFile "#{options.output}/#{path.basename(options.theme, \.jade)}.html", html
+  err <- fs.writeFile "#{options.output}/index.html", html
   console.log err.message if err
 
 scan-hierarchy = (md, cb) ->

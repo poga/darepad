@@ -21,23 +21,20 @@ html(ng-app="leve1up")
     script(src="./javascript/leve1up.js")
   body(ng-controller="leve1upCtrl")
     .ui.grid
-      .one.wide.column
-      .two.wide.column
+      .three.wide.column
         .side
-          p
-            a(href="https://twitter.com/share" class="twitter-share-button" data-size="large") Tweet
-            script.
-              !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
           progress-bar
           !{ menu }
           p
             | Powered by 
             a(href="http://github.com/poga/leve1up") leve1up
             , markdown, and angularjs
-      .seven.wide.column
+          p
+            a(href="https://twitter.com/share" class="twitter-share-button" data-size="large") Tweet
+      .eight.wide.column
         .content
           !{ content }
-      .six.wide.column.rightColumn
+      .five.wide.column.rightColumn
         .pad
           #firepad
     script.
@@ -47,6 +44,10 @@ html(ng-app="leve1up")
       var firepad = Firepad.fromCodeMirror(firepadRef, codeMirror, { richTextToolbar: false, richTextShortcuts: false });
       firepad.on('ready', function () {
         if (firepad.isHistoryEmpty()) {
-          firepad.setHtml('Here is a realtime collaboration notepad. Try write something here!')
+          firepad.setHtml('這裡可以留言喔 <3')
         }
       });
+
+    script.
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+

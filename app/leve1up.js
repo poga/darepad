@@ -23,7 +23,7 @@ app.directive('checkbox', function(){
       label: '@',
       actionItemId: '@for'
     },
-    template: '<div class="ui huge checkbox"><input id="{{actionItemId}}" type="checkbox" ng-model="v" /><label for="{{actionItemId}}">{{label}}</label></div>',
+    template: '<div class="ui large checkbox"><input id="{{actionItemId}}" type="checkbox" ng-model="v" /><label for="{{actionItemId}}">{{label}}</label></div>',
     controller: function($scope, $rootScope){
       return $rootScope.registerAction($scope.actionItemId);
     }
