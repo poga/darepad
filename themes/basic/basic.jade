@@ -41,7 +41,7 @@ html(ng-app="leve1up")
         .pad
           #firepad
     script.
-      var firepadRef = new Firebase("https://g0v-leve1up-firepad.firebaseio.com/");
+      var firepadRef = new Firebase("#{firepadRef}");
       var codeMirror = CodeMirror(document.getElementById('firepad'), { lineWrapping: true});
 
       var firepad = Firepad.fromCodeMirror(firepadRef, codeMirror, { richTextToolbar: false, richTextShortcuts: false });

@@ -19,7 +19,7 @@ exports.parseFile = (file, options, cb) ->
   md = marked text, renderer: renderer
   h, title <- scan-hierarchy md
   list <- build-hierarchy-list h
-  err, html <- jade.renderFile options.theme, content: md, menu: list, title: title, pretty: true
+  err, html <- jade.renderFile options.theme, content: md, menu: list, title: title, firepadRef: options.firepadRef, pretty: true
   console.log err.message if err
   err <- ncp path.dirname(options.theme), options.output
   console.log err.message if err
