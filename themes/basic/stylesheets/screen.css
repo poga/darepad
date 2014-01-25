@@ -96,8 +96,9 @@ a:hover {
 /* line 27, ../sass/screen.sass */
 .content {
   padding: 0 15px;
+  margin-left: 50px;
 }
-/* line 29, ../sass/screen.sass */
+/* line 30, ../sass/screen.sass */
 .content p {
   color: #333333;
   font-size: 22px;
@@ -106,13 +107,13 @@ a:hover {
   font-family: "Noto Serif", serif;
   line-height: 1.4;
 }
-/* line 36, ../sass/screen.sass */
+/* line 37, ../sass/screen.sass */
 .content .checkbox {
   margin-bottom: 10px;
   font-weight: bold;
 }
 
-/* line 40, ../sass/screen.sass */
+/* line 41, ../sass/screen.sass */
 h1, h2, h3, h4 {
   color: #002b36;
   font-family: "PT Sans Caption", sans-serif;
@@ -121,48 +122,50 @@ h1, h2, h3, h4 {
   margin-bottom: 10px;
 }
 
-/* line 47, ../sass/screen.sass */
+/* line 48, ../sass/screen.sass */
 h1 {
   font-size: 53px;
 }
 
-/* line 50, ../sass/screen.sass */
+/* line 51, ../sass/screen.sass */
 h2 {
   font-size: 32px;
 }
 
-/* line 53, ../sass/screen.sass */
+/* line 54, ../sass/screen.sass */
 h3 {
   font-size: 25px;
 }
 
-/* line 56, ../sass/screen.sass */
+/* line 57, ../sass/screen.sass */
 .side {
+  position: fixed;
+  width: inherit;
   margin: 10px;
   font-family: "PT Sans Caption", sans-serif;
 }
-/* line 59, ../sass/screen.sass */
+/* line 62, ../sass/screen.sass */
 .side p {
   margin-top: 20px;
   margin-bottom: 20px;
   font-style: italic;
 }
-/* line 63, ../sass/screen.sass */
+/* line 66, ../sass/screen.sass */
 .side ul {
   color: #666666;
   font-size: 16px;
   margin: 4px 0;
 }
-/* line 67, ../sass/screen.sass */
+/* line 70, ../sass/screen.sass */
 .side ul ul {
   padding-left: 20px;
 }
-/* line 69, ../sass/screen.sass */
+/* line 72, ../sass/screen.sass */
 .side ul ul ul {
   padding-left: 20px;
 }
 
-/* line 72, ../sass/screen.sass */
+/* line 75, ../sass/screen.sass */
 .progress {
   margin-bottom: 20px;
 }
