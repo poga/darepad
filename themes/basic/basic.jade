@@ -11,8 +11,13 @@ html(ng-app="leve1up")
     link(rel="stylesheet" href="./stylesheets/ie.css" media="screen, projection" type="text/css")
     <![endif]-->
     link(rel="stylesheet" href="./stylesheets/semantic.min.css")
+    link(rel="stylesheet" href="./stylesheets/codemirror.css")
+    link(rel="stylesheet" href="./stylesheets/firepad.css")
     script(src="./javascript/angular-cookies.min.js")
     script(src="./javascript/angularLocalStorage.js")
+    script(src="https://cdn.firebase.com/js/client/1.0.2/firebase.js")
+    script(src="./javascript/codemirror.js")
+    script(src="./javascript/firepad-min.js")
     script(src="./javascript/leve1up.js")
   body(ng-controller="leve1upCtrl")
     .ui.grid
@@ -32,4 +37,16 @@ html(ng-app="leve1up")
       .seven.wide.column
         .content
           !{ content }
+      .six.wide.column.rightColumn
+        .pad
+          #firepad
+    script.
+      var firepadRef = new Firebase("https://g0v-leve1up-firepad.firebaseio.com/");
+      var codeMirror = CodeMirror(document.getElementById('firepad'), { lineWrapping: true});
 
+      var firepad = Firepad.fromCodeMirror(firepadRef, codeMirror, { richTextToolbar: false, richTextShortcuts: false });
+      firepad.on('ready', function () {
+        if (firepad.isHistoryEmpty()) {
+          firepad.setHtml('Here is a realtime collaboration notepad. Try write something here!')
+        }
+      });

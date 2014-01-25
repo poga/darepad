@@ -74,7 +74,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /* line 12, ../sass/screen.sass */
 body {
-  padding-top: 30px;
   color: #333333;
   font-size: 22px;
   margin-bottom: 30px;
@@ -82,23 +81,25 @@ body {
   line-height: 1.42857;
 }
 
-/* line 20, ../sass/screen.sass */
+/* line 19, ../sass/screen.sass */
 a {
   text-decoration: none;
   color: #7ca1e8;
 }
-/* line 23, ../sass/screen.sass */
+/* line 22, ../sass/screen.sass */
 a:hover {
   color: #3b72dd;
   text-decoration: underline;
 }
 
-/* line 27, ../sass/screen.sass */
+/* line 26, ../sass/screen.sass */
 .content {
   padding: 0 15px;
+  padding-top: 30px;
   margin-left: 50px;
+  margin-right: 20px;
 }
-/* line 30, ../sass/screen.sass */
+/* line 31, ../sass/screen.sass */
 .content p {
   color: #333333;
   font-size: 22px;
@@ -107,13 +108,13 @@ a:hover {
   font-family: "Noto Serif", serif;
   line-height: 1.4;
 }
-/* line 37, ../sass/screen.sass */
+/* line 38, ../sass/screen.sass */
 .content .checkbox {
   margin-bottom: 10px;
   font-weight: bold;
 }
 
-/* line 41, ../sass/screen.sass */
+/* line 42, ../sass/screen.sass */
 h1, h2, h3, h4 {
   color: #002b36;
   font-family: "PT Sans Caption", sans-serif;
@@ -122,50 +123,75 @@ h1, h2, h3, h4 {
   margin-bottom: 10px;
 }
 
-/* line 48, ../sass/screen.sass */
+/* line 49, ../sass/screen.sass */
 h1 {
   font-size: 53px;
 }
 
-/* line 51, ../sass/screen.sass */
+/* line 52, ../sass/screen.sass */
 h2 {
   font-size: 32px;
 }
 
-/* line 54, ../sass/screen.sass */
+/* line 55, ../sass/screen.sass */
 h3 {
   font-size: 25px;
 }
 
-/* line 57, ../sass/screen.sass */
+/* line 58, ../sass/screen.sass */
 .side {
   position: fixed;
   width: inherit;
   margin: 10px;
+  margin-top: 30px;
   font-family: "PT Sans Caption", sans-serif;
 }
-/* line 62, ../sass/screen.sass */
+/* line 64, ../sass/screen.sass */
 .side p {
   margin-top: 20px;
   margin-bottom: 20px;
   font-style: italic;
 }
-/* line 66, ../sass/screen.sass */
+/* line 68, ../sass/screen.sass */
 .side ul {
   color: #666666;
   font-size: 16px;
   margin: 4px 0;
 }
-/* line 70, ../sass/screen.sass */
+/* line 72, ../sass/screen.sass */
 .side ul ul {
   padding-left: 20px;
 }
-/* line 72, ../sass/screen.sass */
+/* line 74, ../sass/screen.sass */
 .side ul ul ul {
   padding-left: 20px;
 }
 
-/* line 75, ../sass/screen.sass */
+/* line 77, ../sass/screen.sass */
 .progress {
   margin-bottom: 20px;
+}
+
+/* line 80, ../sass/screen.sass */
+.rightColumn {
+  margin-top: 0 !important;
+}
+
+/* line 83, ../sass/screen.sass */
+.pad {
+  background: url(../images/notebook.png);
+  min-height: 100%;
+  position: fixed;
+  width: inherit;
+  margin-top: 0;
+}
+/* line 89, ../sass/screen.sass */
+.pad .firepad {
+  margin-top: 100px;
+  height: 600px;
+}
+/* line 90, ../sass/screen.sass */
+.pad .firepad .CodeMirror {
+  background: transparent;
+  margin: 20px;
 }
