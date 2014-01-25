@@ -8,9 +8,9 @@ require! jade
 exports.parseFile = (file, options, cb) ->
   err, text <- fs.readFile file, \utf8
   md = marked text
-  h <- scan-hierarchy md
+  h, title <- scan-hierarchy md
   list <- build-hierarchy-list h
-  err, html <- jade.renderFile options.theme, content: md, menu: list, pretty: true
+  err, html <- jade.renderFile options.theme, content: md, menu: list, title: title, pretty: true
   err <- ncp path.dirname(options.theme), options.output
   fs.createReadStream('app/leve1up.js').pipe(fs.createWriteStream("#{options.output}/javascript/leve1up.js"))
   err <- fs.writeFile "#{options.output}/#{path.basename(options.theme, \.jade)}.html", html
@@ -32,7 +32,7 @@ scan-hierarchy = (md, cb) ->
         hierarchies[*-1].name = t
         is-header := false
   parser.write md
-  cb? hierarchies
+  cb? hierarchies, hierarchies[0].name
 
 build-hierarchy-list = (hierarchies, cb) ->
   list = ""
