@@ -195,8 +195,8 @@ h3 {
 }
 /* line 93, ../sass/screen.sass */
 .pad .firepad {
-  margin-top: 100px;
-  height: 600px;
+  margin-top: 50px;
+  height: 90vh;
 }
 /* line 94, ../sass/screen.sass */
 .pad .firepad .CodeMirror {
