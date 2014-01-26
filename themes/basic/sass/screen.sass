@@ -5,6 +5,7 @@
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
 
 @import compass/reset
+@import "compass/css3/border-radius"
 
 *
   box-sizing: border-box
@@ -35,7 +36,9 @@ a
     margin-bottom: 30px
     font-family: 'Noto Serif',serif
     line-height: 1.4
-  .checkbox
+  .ui.checkbox
+    label
+      color: #7ca1e8 !important
     margin-bottom: 20px
     font-weight: bold
 
@@ -89,10 +92,13 @@ h3
   position: fixed
   width: inherit
   margin-top: 0
-  padding-right: 10px
+  padding-right: 20px
+  padding-left: 10px
   .firepad
+    @include border-radius(10px 10px)
+    margin-top: 50px
+    height: 90vh
+    border: 3px solid #aaa
     .CodeMirror
       background: transparent
       margin: 20px
-    margin-top: 50px
-    height: 90vh
