@@ -200,16 +200,10 @@ h3 {
 }
 /* line 97, ../sass/screen.sass */
 .pad .firepad {
-  -webkit-border-radius: 10px 10px;
-  -moz-border-radius: 10px 10px;
-  -ms-border-radius: 10px 10px;
-  -o-border-radius: 10px 10px;
-  border-radius: 10px 10px;
   margin-top: 50px;
   height: 90vh;
-  border: 3px solid #aaaaaa;
 }
-/* line 102, ../sass/screen.sass */
+/* line 100, ../sass/screen.sass */
 .pad .firepad .CodeMirror {
   background: transparent;
   margin: 20px;
