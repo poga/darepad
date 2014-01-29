@@ -13,7 +13,7 @@ exports.parseFile = (file, options, cb) ->
   renderer.heading = (text, level) ->
     for i to stack.length - level then stack.pop!
     stack.push text
-    header-id = stack.join(\-).replace(/ /g, "")
+    header-id = stack.join(\-).replace(/[\s\.$\[\]#\/]/g, "-")
     return "<h#level id='#header-id'>#text</h#level>"
 
   md = marked text, renderer: renderer
