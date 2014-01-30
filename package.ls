@@ -2,20 +2,20 @@
 author:
   name: ['Poga Po']
   email: 'poga@poga.tw'
-name: 'leve1up'
-description: 'declarative tutorial writing with markdown and angularjs'
+name: 'MoltenPad'
+description: 'Liquify People'
 version: '0.0.1'
 main: \lib/index.js
 bin:
-  pgrest: 'bin/leve1up'
+  molten: 'bin/molten'
 repository:
   type: 'git'
-  url: 'git://github.com/poga/leve1up.git'
+  url: 'git://github.com/poga/moltenpad.git'
 scripts:
   prepublish: """
     lsc -cj package.ls &&
     lsc -bc -o lib src
-    lsc -bc app/leve1up.ls
+    lsc -bc app/molten.ls
   """
 engines: {node: '*'}
 dependencies:
