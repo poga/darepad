@@ -1,30 +1,27 @@
-# Leve1Up
+# MoltenPad
 
-Leve1Up is a tool for creating realtime interactive challenges with markdown. With features such as:
-
-- Collaborative notepad
-- Personal progress tracking
-- Analytical tools
-- Easy deployment. Compiled app will be a static web app. No backend needed.
-
-## Example
-
-preparing...
+Melt people into liquid.
 
 ## Usage
 
-Install:
+Install moltenpad
 
 ```
-git clone git@github.com:poga/leve1up.git
+git clone git@github.com:poga/moltenpad.git
 npm i
 npm prepublish
 ```
 
-Use:
+You will need a theme to compile. For now, there is only one theme: simple
 
 ```
-./bin/leve1up YOUR_MARKDOWN.md YOUR_FIREBASE_REF
+git clone git@github.com:poga/moltenpad-simple.git
+```
+
+Compile:
+
+```
+./bin/moltenpad YOUR_MARKDOWN.md THEME_INDEX.JADE_PATH YOUR_FIREPAD_REF
 ```
 
 Compiled app will be at ./build/
