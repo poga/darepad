@@ -13,13 +13,13 @@ exports.parseFile = (file, options, cb) ->
   renderer.heading = (text, level) ->
     for i to stack.length - level then stack.pop!
     stack.push text
-    header-id = stack.join(\-).replace(/[\s\.$\[\]#\/]/g, "-")
+    header-id = stack.join(\-).replace(/[\s\.\[\]\/#$]/g, "-")
     return "<h#level id='#header-id'>#text</h#level>"
 
-  md = marked text, renderer: renderer
-  h, title <- scan-hierarchy md
+  html = marked text, renderer: renderer
+  h, title <- scan-hierarchy html
   list <- build-hierarchy-list h
-  err, html <- jade.renderFile options.theme, content: md, menu: list, title: title, firepadRef: options.firepadRef, pretty: true
+  err, html <- jade.renderFile options.theme, content: html, menu: list, title: title, firepadRef: options.firepadRef, pretty: true
   console.log err.message if err
   err <- ncp path.dirname(options.theme), options.output
   console.log err.message if err
@@ -27,7 +27,7 @@ exports.parseFile = (file, options, cb) ->
   err <- fs.writeFile "#{options.output}/index.html", html
   console.log err.message if err
 
-scan-hierarchy = (md, cb) ->
+scan-hierarchy = (html, cb) ->
   hierarchies = []
   stack = ['']
   is-header = false
@@ -42,7 +42,7 @@ scan-hierarchy = (md, cb) ->
       if is-header
         hierarchies[*-1].name = t
         is-header := false
-  parser.write md
+  parser.write html
   cb? hierarchies, hierarchies[0].name
 
 build-hierarchy-list = (hierarchies, cb) ->
