@@ -1,4 +1,4 @@
-app = angular.module \leve1up, [\angularLocalStorage]
+app = angular.module \moltenpad, [\angularLocalStorage]
 app.directive \textInput ->
   restrict: \E
   scope:
@@ -27,7 +27,7 @@ app.directive \progressBar ->
   </div>
   """
 
-app.controller \leve1upCtrl, ($rootScope, storage) !->
+app.controller \moltenCtrl, ($rootScope, storage) !->
   storage.bind $rootScope, 'actions'
   $rootScope.actions ||= {}
 

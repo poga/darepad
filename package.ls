@@ -7,7 +7,7 @@ description: 'Liquify People'
 version: '0.0.1'
 main: \lib/index.js
 bin:
-  molten: 'bin/molten'
+  molten: 'bin/moltenpad'
 repository:
   type: 'git'
   url: 'git://github.com/poga/moltenpad.git'

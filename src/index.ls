@@ -23,7 +23,7 @@ exports.parseFile = (file, options, cb) ->
   console.log err.message if err
   err <- ncp path.dirname(options.theme), options.output
   console.log err.message if err
-  fs.createReadStream('app/leve1up.js').pipe(fs.createWriteStream("#{options.output}/javascript/leve1up.js"))
+  fs.createReadStream('app/moltenpad.js').pipe(fs.createWriteStream("#{options.output}/javascript/moltenpad.js"))
   err <- fs.writeFile "#{options.output}/index.html", html
   console.log err.message if err
 
