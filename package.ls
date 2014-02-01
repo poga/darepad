@@ -15,7 +15,7 @@ scripts:
   prepublish: """
     lsc -cj package.ls &&
     lsc -bc -o lib src
-    lsc -bc app/molten.ls
+    lsc -bc app/moltenpad.ls
   """
 engines: {node: '*'}
 dependencies:

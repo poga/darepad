@@ -36,10 +36,6 @@ app.controller \moltenCtrl, ($rootScope, storage) !->
     $rootScope.actions <<< { "#{varName}": void } if not $rootScope.actions[varName]
 
   $rootScope.$watch \actions ->
-    max = 0
-    completed = 0
-    for k, v of $rootScope.actions
-      max += 1
-      completed += 1 if v and v != "" and v != false
-    $rootScope.percentage = completed / max * 100
+    completed = [x for k, v of $rootScope.actions when v and v != ""]
+    $rootScope.percentage = completed / Object.keys($rootScope.actions).length * 100
   , true
