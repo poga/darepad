@@ -5,7 +5,7 @@ app.directive \textInput ->
     v: \=for
     placeholder: \@
     actionItemId: \@for
-  template: '<div class="ui large input"><input type="text" ng-model="v" placeholder="{{placeholder}}"/></input>'
+  templateUrl: 'partials/checkbox.html'
   controller: ($scope, $rootScope) ->
     $rootScope.registerAction $scope.actionItemId
 
@@ -15,17 +15,13 @@ app.directive \checkbox ->
     v: \=for
     label: \@
     actionItemId: \@for
-  template: '<div class="ui large checkbox"><input id="{{actionItemId}}" type="checkbox" ng-model="v" /><label for="{{actionItemId}}">{{label}}</label></div>'
+  templateUrl: 'partials/checkbox.html'
   controller: ($scope, $rootScope) ->
     $rootScope.registerAction $scope.actionItemId
 
 app.directive \progressBar ->
   restrict: \E
-  template: """
-  <div class="ui successful progress">
-    <div class="bar" style="width:{{percentage}}%"></div>
-  </div>
-  """
+  templateUrl: 'partials/progress_bar.html'
 
 app.controller \moltenCtrl, ($rootScope, storage) !->
   storage.bind $rootScope, 'actions'
