@@ -4,7 +4,6 @@ update-action = (scope, name, value) ->
   s = scope.$parent
   while s isnt void
     if s.hasOwnProperty \actions
-      console.log \updating, name, value
       s.actions[name] = value
       break
     else
@@ -28,11 +27,8 @@ app.directive \checkbox ->
   templateUrl: 'partials/checkbox.html'
   controller: ($scope) ->
     $scope.actionId = CryptoJS.MD5($scope.label).toString(CryptoJS.enc.Hex)
-    console.log \labe, $scope.label
     update-action $scope.actionId, void
     $scope.$watch \v ->
-      console.log \value, it
-      console.log \scope, $scope
       update-action $scope, $scope.actionId, it
 
 app.directive \progressBar ->
