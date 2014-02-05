@@ -11,3 +11,5 @@ node_modules/*
 /app/leve1up.js
 
 /app/moltenpad.js
+
+/app/app.js
