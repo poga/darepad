@@ -21,11 +21,12 @@ app.directive \mpTextInput ->
     $scope.$watch \v ->
       update-action $scope, $scope.actionId, it
 
-app.directive \mpCheckbox ->
+app.directive \mpAction ->
   restrict: \E
   scope:
     label: \@
-  templateUrl: 'partials/checkbox.html'
+    link: \@
+  templateUrl: 'partials/action.html'
   controller: ($scope) ->
     $scope.actionId = CryptoJS.MD5($scope.label).toString(CryptoJS.enc.Hex)
     update-action $scope.actionId, void
