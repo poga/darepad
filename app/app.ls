@@ -10,7 +10,7 @@ update-action = (scope, name, value) ->
       s = s.$parent
 
 app = angular.module \moltenpad, [\angularLocalStorage]
-app.directive \textInput ->
+app.directive \mpTextInput ->
   restrict: \E
   scope:
     placeholder: \@
@@ -21,7 +21,7 @@ app.directive \textInput ->
     $scope.$watch \v ->
       update-action $scope, $scope.actionId, it
 
-app.directive \checkbox ->
+app.directive \mpCheckbox ->
   restrict: \E
   scope:
     label: \@
@@ -32,7 +32,7 @@ app.directive \checkbox ->
     $scope.$watch \v ->
       update-action $scope, $scope.actionId, it
 
-app.directive \progressBar ->
+app.directive \mpProgressBar ->
   restrict: \E
   templateUrl: 'partials/progress_bar.html'
 
