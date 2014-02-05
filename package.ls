@@ -24,7 +24,7 @@ dependencies:
   marked: \~0.3.0
   jade: \~1.1.5
   ncp: \~0.5.0
-  'crypto-js': \*
+  'crypto-js': \~3.1.2
 devDependencies:
   LiveScript: \1.2.x
-  browserify: \*
+  browserify: \~3.24.11
