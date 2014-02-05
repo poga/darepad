@@ -17,18 +17,20 @@
     "url": "git://github.com/poga/moltenpad.git"
   },
   "scripts": {
-    "prepublish": "lsc -cj package.ls &&\nlsc -bc -o lib src\nlsc -bc app/moltenpad.ls"
+    "prepublish": "lsc -cj package.ls &&\nlsc -bc -o lib src\nlsc -bc app/app.ls\nbrowserify app/app.js -o app/moltenpad.js"
   },
   "engines": {
     "node": "*"
   },
   "dependencies": {
-    "htmlparser2": "3.4.0",
-    "marked": "0.3.0",
-    "jade": "1.1.5",
-    "ncp": "0.5.0"
+    "htmlparser2": "~3.4.0",
+    "marked": "~0.3.0",
+    "jade": "~1.1.5",
+    "ncp": "~0.5.0",
+    "crypto-js": "*"
   },
   "devDependencies": {
-    "LiveScript": "1.2.x"
+    "LiveScript": "1.2.x",
+    "browserify": "*"
   }
 }
