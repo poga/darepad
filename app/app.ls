@@ -13,12 +13,13 @@ app = angular.module \moltenpad, [\angularLocalStorage]
 app.directive \textInput ->
   restrict: \E
   scope:
-    v: \=for
     placeholder: \@
-    actionItemId: \@for
   templateUrl: 'partials/checkbox.html'
-  controller: ($scope, $rootScope) ->
-    $rootScope.registerAction $scope.actionItemId
+  controller: ($scope) ->
+    $scope.actionId = CryptoJS.MD5($scope.placeholder).toString(CryptoJS.enc.Hex)
+    update-action $scope.actionId, void
+    $scope.$watch \v ->
+      update-action $scope, $scope.actionId, it
 
 app.directive \checkbox ->
   restrict: \E
