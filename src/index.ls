@@ -5,8 +5,8 @@ require! marked
 require! jade
 {ncp} = require \ncp
 
-exports.parseFile = (file, options, cb) ->
-  err, text <- fs.readFile file, \utf8
+exports.compile = (opts, cb) ->
+  err, text <- fs.readFile opts.input, \utf8
   # override renderer to generate custom header id
   stack = []
   renderer = new marked.Renderer!
@@ -19,14 +19,15 @@ exports.parseFile = (file, options, cb) ->
   html = marked text, renderer: renderer
   h, title <- scan-hierarchy html
   list <- build-hierarchy-list h
-  err, html <- jade.renderFile options.theme, content: html, menu: list, title: title, firepadRef: options.firepadRef, pretty: true
+  err, html <- jade.renderFile opts.theme, content: html, menu: list, title: title, firepadRef: opts.firepadRef, pretty: true
   console.log err.message if err
-  err <- ncp path.dirname(options.theme), options.output
+  err <- ncp path.dirname(opts.theme), opts.output
   console.log err.message if err
-  fs.mkdirSync "#{options.output}/javascript"
-  fs.createReadStream('app/moltenpad.js').pipe(fs.createWriteStream("#{options.output}/javascript/moltenpad.js"))
-  err <- fs.writeFile "#{options.output}/index.html", html
+  fs.mkdirSync "#{opts.output}/javascript"
+  fs.createReadStream('app/moltenpad.js').pipe(fs.createWriteStream("#{opts.output}/javascript/moltenpad.js"))
+  err <- fs.writeFile "#{opts.output}/index.html", html
   console.log err.message if err
+  cb?!
 
 scan-hierarchy = (html, cb) ->
   hierarchies = []

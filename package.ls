@@ -25,6 +25,7 @@ dependencies:
   jade: \~1.1.5
   ncp: \~0.5.0
   'crypto-js': \~3.1.2
+  nomnom: \~1.6.2
 devDependencies:
   LiveScript: \1.2.x
   browserify: \~3.24.11

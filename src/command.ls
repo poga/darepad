@@ -1,6 +1,29 @@
+require! nomnom
+
 leve1up = require \..
 
-<- leve1up.parseFile process.argv.2,
-    theme: process.argv.3
-    firepadRef: process.argv.4
-    output: process.argv.5 or "build"
+opts = nomnom.script \moltenpad
+  .options do
+    input:
+      abbr: \i
+      help: 'input markdown path'
+    theme:
+      abbr: \t
+      metavar: \THEME_DIR
+      help: 'path to the theme base dir'
+    force:
+      abbr: \f
+      flag: true
+      help: 'force overwrite output dir if it\'s already exist'
+    output:
+      abbr: \o
+      default: "build"
+      metavar: 'OUTPUT_DIR'
+      help: "output dir"
+    firepadRef:
+      metavar: 'FIREBASE_REF'
+      help: 'firebase ref for firepad'
+  .parse!
+
+<- leve1up.compile opts
+console.log \complete
