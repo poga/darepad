@@ -15,6 +15,7 @@ opts = nomnom.script \moltenpad
       abbr: \f
       flag: true
       help: 'force overwrite output dir if it\'s already exist'
+      default: false
     output:
       abbr: \o
       default: "build"
