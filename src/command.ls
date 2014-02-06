@@ -6,6 +6,7 @@ opts = nomnom.script \moltenpad
   .options do
     input:
       abbr: \i
+      required: true
       help: 'input markdown path'
     theme:
       abbr: \t

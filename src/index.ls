@@ -22,8 +22,7 @@ exports.compile = (opts, cb) ->
   err, html <- jade.renderFile opts.theme, content: html, menu: list, title: title, firepadRef: opts.firepadRef, pretty: true
   console.log err.message if err
   exist <- fs.exists opts.output
-  if exist and not opts.force
-    throw 'output dir already exist'
+  throw 'output dir already exist' if exist and not opts.force
   err <- ncp path.dirname(opts.theme), opts.output
   console.log err.message if err
   err <- fs.mkdir "#{opts.output}/javascript"
