@@ -9,8 +9,8 @@ update-action = (scope, name, value) ->
     else
       s = s.$parent
 
-app = angular.module \moltenpad, [\angularLocalStorage]
-app.directive \mpTextInput ->
+angular.module \MPDirectives []
+.directive \mpTextInput ->
   restrict: \E
   scope:
     placeholder: \@
@@ -21,7 +21,7 @@ app.directive \mpTextInput ->
     $scope.$watch \v ->
       update-action $scope, $scope.actionId, it
 
-app.directive \mpAction ->
+.directive \mpAction ->
   restrict: \E
   scope:
     label: \@
@@ -33,10 +33,11 @@ app.directive \mpAction ->
     $scope.$watch \v ->
       update-action $scope, $scope.actionId, it
 
-app.directive \mpProgressBar ->
+.directive \mpProgressBar ->
   restrict: \E
   templateUrl: 'partials/progress_bar.html'
 
+app = angular.module \moltenpad, [\angularLocalStorage, \MPDirectives]
 app.controller \moltenCtrl, ($scope, storage) !->
   storage.bind $scope, 'actions'
   $scope.actions ||= {}
