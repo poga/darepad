@@ -28,4 +28,3 @@ opts = nomnom.script \moltenpad
   .parse!
 
 <- leve1up.compile opts
-console.log \complete

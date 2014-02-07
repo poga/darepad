@@ -6,7 +6,6 @@ require! jade
 {ncp} = require \ncp
 
 exports.compile = (opts, cb) ->
-  err, text <- fs.readFile opts.input, \utf8
   # override renderer to generate custom header id
   stack = []
   renderer = new marked.Renderer!
@@ -16,19 +15,21 @@ exports.compile = (opts, cb) ->
     header-id = stack.join(\-).replace(/[\s\.\[\]\/#$]/g, "-")
     return "<h#level id='#header-id'>#text</h#level>"
 
+  err, text <- fs.readFile opts.input, \utf8
+  throw err if err
   html = marked text, renderer: renderer
   h, title <- scan-hierarchy html
   list <- build-hierarchy-list h
   err, html <- jade.renderFile opts.theme, content: html, menu: list, title: title, firepadRef: opts.firepadRef, pretty: true
-  console.log err.message if err
+  throw err if err
   exist <- fs.exists opts.output
   throw 'output dir already exist' if exist and not opts.force
   err <- ncp path.dirname(opts.theme), opts.output
-  console.log err.message if err
+  throw err if err
   err <- fs.mkdir "#{opts.output}/javascript"
   fs.createReadStream('app/moltenpad.js').pipe(fs.createWriteStream("#{opts.output}/javascript/moltenpad.js"))
   err <- fs.writeFile "#{opts.output}/index.html", html
-  console.log err.message if err
+  throw err if err
   cb?!
 
 scan-hierarchy = (html, cb) ->
