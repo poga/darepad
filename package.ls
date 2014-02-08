@@ -18,6 +18,7 @@ scripts:
     lsc -bc app/app.ls
     browserify app/app.js -o app/moltenpad.js
   """
+  dev: "./node_modules/gulp/bin/gulp.js --require LiveScript dev"
 engines: {node: '*'}
 dependencies:
   htmlparser2: \~3.4.0
@@ -29,3 +30,8 @@ dependencies:
 devDependencies:
   LiveScript: \1.2.x
   browserify: \~3.24.11
+  "gulp-util": \~2.2.14
+  gulp: \~3.5.2
+  "gulp-livescript": \~0.1.1
+  "gulp-browserify": \~0.4.2
+  "gulp-concat": \~2.1.7
