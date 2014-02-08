@@ -13,10 +13,7 @@ repository:
   url: 'git://github.com/poga/moltenpad.git'
 scripts:
   prepublish: """
-    lsc -cj package.ls &&
-    lsc -bc -o lib src
-    lsc -bc app/app.ls
-    browserify app/app.js -o app/moltenpad.js
+    ./node_modules/gulp/bin/gulp.js --require LiveScript prepublish
   """
   dev: "./node_modules/gulp/bin/gulp.js --require LiveScript dev"
 engines: {node: '*'}

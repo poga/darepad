@@ -27,3 +27,5 @@ gulp.task \compile-src ->
 gulp.task \dev ->
   gulp.watch paths.src, <[compile-src]>
   gulp.watch paths.app, <[build-app]>
+
+gulp.task \prepublish <[compile-src build-app]>
