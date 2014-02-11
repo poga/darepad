@@ -8,7 +8,7 @@ angular.module \MPDirectives []
   controller: ($scope, $attrs) ->
     $scope{placeholder} = $attrs
     $scope.actionId = CryptoJS.MD5($scope.placeholder).toString(CryptoJS.enc.Hex)
-    $scope.actions[$scope.actionId] = false if $scope.actions[$scope.actionId] == void
+    $scope.register $scope.actionId
 
 .directive \mpAction ->
   restrict: \E
@@ -17,16 +17,29 @@ angular.module \MPDirectives []
   controller: ($scope, $attrs) ->
     $scope{label, link} = $attrs
     $scope.actionId = CryptoJS.MD5($scope.label).toString(CryptoJS.enc.Hex)
-    $scope.actions[$scope.actionId] = false if $scope.actions[$scope.actionId] == void
+    $scope.register $scope.actionId
 
 .directive \mpProgressBar ->
   restrict: \E
   templateUrl: 'partials/progress_bar.html'
 
+.directive \mpReset ->
+  restrict: \E
+  templateUrl: 'partials/reset.html'
+  controller: ($scope, $attrs) ->
+    $scope{label} = $attrs
+
 app = angular.module \moltenpad, [\angularLocalStorage, \MPDirectives]
 app.controller \moltenCtrl, ($scope, storage) !->
   storage.bind $scope, 'actions'
   $scope.actions ||= {}
+
+  $scope.register = (id) ->
+    $scope.actions[id] = false if $scope.actions[id] == void
+
+  $scope.reset = ->
+    for k, v of $scope.actions
+      $scope.actions[k] = void
 
   <- $scope.$watch \actions, _, true
   completed = [k for k, v of $scope.actions when v and v != ""].length
