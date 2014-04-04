@@ -27,7 +27,7 @@ exports.compile = (opts, cb) ->
   err <- ncp path.dirname(opts.theme), opts.output
   throw err if err
   err <- fs.mkdir "#{opts.output}/javascript"
-  fs.createReadStream('app/moltenpad.js').pipe(fs.createWriteStream("#{opts.output}/javascript/moltenpad.js"))
+  fs.createReadStream('app/darepad.js').pipe(fs.createWriteStream("#{opts.output}/javascript/darepad.js"))
   err <- fs.writeFile "#{opts.output}/index.html", html
   throw err if err
   cb?!

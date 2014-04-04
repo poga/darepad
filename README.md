@@ -1,13 +1,13 @@
-# MoltenPad
+# DarePad
 
-Melt people into liquid.
+SOP of everything
 
 ## Install
 
-Install moltenpad
+Install DarePad
 
 ```
-git clone git@github.com:poga/moltenpad.git
+git clone git@github.com:poga/darepad.git
 npm i
 ```
 
@@ -20,13 +20,13 @@ git clone git@github.com:poga/moltenpad-simple.git
 ## Usage
 
 ```
-./bin/moltenpad -h
+./bin/darepad -h
 ```
 
 ### example
 
 ```
-./bin/moltenpad -i markdown.md -t ../moltenpad-simple/index.jade -o build --firepadRef https://...firebaseio.com
+./bin/darepad -i markdown.md -t ../moltenpad-simple/index.jade -o build --firepadRef https://...firebaseio.com
 ```
 
 ## Development

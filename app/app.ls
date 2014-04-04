@@ -1,7 +1,7 @@
 CryptoJS = require 'crypto-js'
 
-angular.module \MPDirectives []
-.directive \mpTextInput ->
+angular.module \DPDirectives []
+.directive \dpTextInput ->
   restrict: \E
   scope: true
   templateUrl: 'partials/checkbox.html'
@@ -10,7 +10,7 @@ angular.module \MPDirectives []
     $scope.actionId = CryptoJS.MD5($scope.placeholder).toString(CryptoJS.enc.Hex)
     $scope.register $scope.actionId, ""
 
-.directive \mpAction ->
+.directive \dpAction ->
   restrict: \E
   scope: true
   templateUrl: 'partials/action.html'
@@ -19,18 +19,18 @@ angular.module \MPDirectives []
     $scope.actionId = CryptoJS.MD5($scope.label).toString(CryptoJS.enc.Hex)
     $scope.register $scope.actionId, false
 
-.directive \mpProgressBar ->
+.directive \dpProgressBar ->
   restrict: \E
   templateUrl: 'partials/progress_bar.html'
 
-.directive \mpReset ->
+.directive \dpReset ->
   restrict: \E
   templateUrl: 'partials/reset.html'
   controller: ($scope, $attrs) ->
     $scope{label} = $attrs
 
-app = angular.module \moltenpad, [\angularLocalStorage, \MPDirectives]
-app.controller \moltenCtrl, ($scope, storage) !->
+app = angular.module \darepad, [\angularLocalStorage, \DPDirectives]
+app.controller \darepadCtrl, ($scope, storage) !->
   storage.bind $scope, 'actions'
   $scope.actions ||= {}
 

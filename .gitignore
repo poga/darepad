@@ -3,13 +3,9 @@
 node_modules/*
 
 /lib/
+/build/
 
 .sass-cache
 
-/build/
-
-/app/leve1up.js
-
 /app/moltenpad.js
-
 /app/app.js

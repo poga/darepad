@@ -1,7 +1,7 @@
 require! gulp
 gutil = require \gulp-util
 gls = require \gulp-livescript
-gbify = require \gulp-browserify
+browserify = require \gulp-browserify
 concat = require \gulp-concat
 
 paths =
@@ -15,8 +15,8 @@ gulp.task \compile-app ->
 
 gulp.task \build-app <[compile-app]> ->
   gulp.src './app/app.js'
-    .pipe gbify!
-    .pipe concat 'moltenpad.js'
+    .pipe browserify!
+    .pipe concat 'darepad.js'
     .pipe gulp.dest './app/'
 
 gulp.task \compile-src ->

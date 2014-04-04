@@ -1,8 +1,8 @@
 require! nomnom
 
-leve1up = require \..
+darepad = require \..
 
-opts = nomnom.script \moltenpad
+opts = nomnom.script \darepad
   .options do
     input:
       abbr: \i
@@ -27,4 +27,4 @@ opts = nomnom.script \moltenpad
       help: 'firebase ref for firepad'
   .parse!
 
-<- leve1up.compile opts
+<- darepad.compile opts

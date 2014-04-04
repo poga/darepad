@@ -2,15 +2,15 @@
 author:
   name: ['Poga Po']
   email: 'poga@poga.tw'
-name: 'MoltenPad'
-description: 'Liquify People'
+name: 'DarePad'
+description: 'SOP of everything'
 version: '0.0.1'
 main: \lib/index.js
 bin:
-  molten: 'bin/moltenpad'
+  darepad: 'bin/darepad'
 repository:
   type: 'git'
-  url: 'git://github.com/poga/moltenpad.git'
+  url: 'git://github.com/poga/darepad.git'
 scripts:
   prepublish: """
     ./node_modules/gulp/bin/gulp.js --require LiveScript prepublish
