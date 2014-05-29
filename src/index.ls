@@ -20,11 +20,15 @@ exports.compile = (opts, cb) ->
   html = marked text, renderer: renderer
   h, title <- scan-hierarchy html
   list <- build-hierarchy-list h
-  err, html <- jade.renderFile opts.theme, content: html, menu: list, title: title, firepadRef: opts.firepadRef, pretty: true
+  err, html <- jade.renderFile 'app/index.jade', content: html, menu: list, title: title, pretty: true
   throw err if err
   exist <- fs.exists opts.output
   throw 'output dir already exist' if exist and not opts.force
-  err <- ncp path.dirname(opts.theme), opts.output
+  err <- ncp 'partials', "#{opts.output}/partials"
+  throw err if err
+  err <- ncp 'stylesheets', "#{opts.output}/stylesheets"
+  throw err if err
+  err <- ncp 'bower_components', "#{opts.output}/bower_components"
   throw err if err
   err <- fs.mkdir "#{opts.output}/javascript"
   fs.createReadStream('app/darepad.js').pipe(fs.createWriteStream("#{opts.output}/javascript/darepad.js"))

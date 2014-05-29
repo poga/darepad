@@ -8,10 +8,6 @@ opts = nomnom.script \darepad
       abbr: \i
       required: true
       help: 'input markdown path'
-    theme:
-      abbr: \t
-      metavar: \THEME_DIR
-      help: 'path to the theme base dir'
     force:
       abbr: \f
       flag: true
@@ -22,9 +18,6 @@ opts = nomnom.script \darepad
       default: "build"
       metavar: 'OUTPUT_DIR'
       help: "output dir"
-    firepadRef:
-      metavar: 'FIREBASE_REF'
-      help: 'firebase ref for firepad'
   .parse!
 
 <- darepad.compile opts

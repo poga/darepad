@@ -1,0 +1,27 @@
+html(ng-app="darepad")
+  head
+    title #{title}
+    meta(charset="utf-8")
+    <!-- vendors -->
+    script(src="./bower_components/jquery/dist/jquery.min.js")
+    script(src="./bower_components/angular/angular.min.js")
+    script(src="./bower_components/semantic-ui/build/packaged/javascript/semantic.min.js")
+    link(rel="stylesheet" href="./bower_components/semantic-ui/build/packaged/css/semantic.min.css")
+    script(src="./bower_components/angular-cookies/angular-cookies.min.js")
+    script(src="./bower_components/angularLocalStorage/src/angularLocalStorage.js")
+    <!-- molten -->
+    script(src="./javascript/darepad.js")
+    link(rel="stylesheet" href="./stylesheets/index.css")
+  body(ng-controller="darepadCtrl")
+    .ui.grid
+      .one.wide.column
+      .two.wide.column
+        .side
+          dp-progress-bar
+          != menu
+          dp-reset(label="清除紀錄")
+      .twelve.wide.column
+        .content
+          != content
+
+

@@ -43,6 +43,6 @@ app.controller \darepadCtrl, ($scope, storage) !->
 
   <- $scope.$watch \actions, _, true
   completed = [k for k, v of $scope.actions when v and v != ""].length
-  console.log completed, Object.keys($scope.actions)
+  #console.log completed, Object.keys($scope.actions)
   $scope.percentage = completed / Object.keys($scope.actions).length * 100
-  console.log $scope.percentage
+  #console.log $scope.percentage

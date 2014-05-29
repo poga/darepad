@@ -1,0 +1,25 @@
+{
+  "name": "darepad",
+  "version": "0.0.1",
+  "homepage": "https://github.com/poga/darepad",
+  "authors": [
+    "Poga Po <poga.bahamut@gmail.com>"
+  ],
+  "description": "darepad",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "angularjs": "*",
+    "semantic-ui": "~0.17.0",
+    "angular-cookies": "~1.2.16",
+    "angularLocalStorage": "~0.1.7"
+  }
+}
