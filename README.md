@@ -1,33 +1,39 @@
 # DarePad
 
-SOP of everything
+自我檢核文件產生器
 
 ## Install
-
-Install DarePad
 
 ```
 git clone git@github.com:poga/darepad.git
 npm i
 ```
 
-You will need a theme to compile. For now, there is only one theme: simple
-
-```
-git clone git@github.com:poga/moltenpad-simple.git
-```
-
 ## Usage
 
+A darepad document is just a markdown file plus some custom tags.
+
+### example DarePad document
+
+darepad.md:
+
 ```
-./bin/darepad -h
+# title
+
+some description
+
+<dp-action label="checkbox label" link="http://www.google.com"></dp-action>
 ```
 
-### example
+```
+./bin/darepad -i darepad.md -o build -f
+```
 
-```
-./bin/darepad -i markdown.md -t ../moltenpad-simple/index.jade -o build --firepadRef https://...firebaseio.com
-```
+### options
+
+ * **-i**: input markdown file name
+ * **-o**: output path
+ * **-f**: overwrite output path if exist
 
 ## Development
 
