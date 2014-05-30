@@ -1,5 +1,8 @@
 <div class="ui checkbox">
   <input id="{{actionId}}" type="checkbox" ng-model="actions[actionId]" />
-  <label for="{{actionId}}" ng-if="link"><a href="{{link}}" target="_blank">{{label}}<i class="small external url icon"></i></a></label>
+  <label for="{{actionId}}" ng-if="link">
+    <a href="{{link}}" target="_blank" ng-if="!popup">{{label}}<i class="small cloud icon"></i></a>
+    <a href="" ng-if="popup" ng-click="open(link)">{{label}}<i class="small external url icon"></i></a>
+  </label>
   <label for="{{actionId}}" ng-if="!link">{{label}}</label>
 </div>
