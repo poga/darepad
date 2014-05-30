@@ -14,13 +14,14 @@ angular.module \DPDirectives []
   restrict: \E
   scope: true
   templateUrl: 'partials/action.html'
-  controller: ($scope, $attrs) ->
+  controller: ($scope, $window, $attrs) ->
     $scope{label, link, popup} = $attrs
     $scope.actionId = CryptoJS.MD5($scope.label).toString(CryptoJS.enc.Hex)
     $scope.register $scope.actionId, false
 
     $scope.open = (link) ->
-      window.open link, \_blank, 'menubar=no,toolbar=no,location=no,directories=no,status=no'
+      $window.open link, \_blank, 'menubar=no,toolbar=no,location=no,directories=no,status=no'
+      true
 
 .directive \dpProgressBar ->
   restrict: \E
