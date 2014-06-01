@@ -16,7 +16,7 @@ npm run dev
 
 First, create a document on [Ethercalc](https://www.ethercalc.org). [Example](https://www.ethercalc.org/vgvvb70it0).
 
-Remember your document id. For example, the document of https://www.ethercalc.org/vgvvb70it0 is `vgvvb70it0`
+Remember your document id. For example, the document id of https://www.ethercalc.org/vgvvb70it0 is `vgvvb70it0`
 
 Then open your browser, access `http://localhost:8080/vgvvb70it0`.
 
