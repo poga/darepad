@@ -8,8 +8,8 @@ app = angular.module \app, <[angularLocalStorage]>
   do
     id = $location.path!substr 1
     $scope.pad-id = id
-    #csv <~ $http.get "https://www.ethercalc.org/_/#id/csv" .success _
-    csv <- $http.get "/#id.csv" .success _
+    csv <~ $http.get "https://www.ethercalc.org/_/#id/csv" .success _
+    #csv <- $http.get "/#id.csv" .success _
     $scope.csv = CSV.parse csv
 
   storage.bind $scope, 'progress', defaultValue: {}
