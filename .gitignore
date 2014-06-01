@@ -16,3 +16,5 @@ bower_components
 /index.html
 
 *.csv
+
+/npm-debug.log
