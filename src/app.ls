@@ -4,11 +4,11 @@ app = angular.module \app, <[angularLocalStorage]>
 .config ($locationProvider) ->
   $locationProvider.html5Mode yes
 
-.controller \appCtrl, ($scope, storage, $location, $http, $anchorScroll) !->
+.controller \appCtrl, ($scope, storage, $location, $http, $anchorScroll, $window) !->
   do
     id = $location.path!substr 1
-    csv <~ $http.get "https://www.ethercalc.org/_/#id/csv" .success _
-    #csv <- $http.get "/#id.csv" .success _
+    #csv <~ $http.get "https://www.ethercalc.org/_/#id/csv" .success _
+    csv <- $http.get "/#id.csv" .success _
     $scope.csv = CSV.parse csv
 
   storage.bind $scope, 'progress', defaultValue: {}
@@ -22,6 +22,9 @@ app = angular.module \app, <[angularLocalStorage]>
     for k, v of $scope.progress
       $scope.progress[k] = void
 
+  $scope.open = (link) ->
+    $window.open link, \_blank, 'menubar=no,toolbar=no,location=no,directories=no,status=no'
+    true
   do
     <- $scope.$watch \progress, _, true
     completed = [k for k, v of $scope.progress when v and v != ""].length

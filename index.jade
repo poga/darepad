@@ -34,6 +34,6 @@ html(ng-app="app")
               input(id="{{c.actionId}}" type="checkbox" ng-model="progress[c.actionId]")
               label(for="{{c.actionId}}" ng-if="c.link")
                 a(href="{{c.link}}" target="_blank" ng-if="!c.attrs.popup") {{c.a}}
-                a(href="{{c.link}}" target="_blank" ng-if="c.attrs.popup") {{c.a}}
+                a(href="" ng-click="open(c.link)" ng-if="c.attrs.popup") {{c.a}}
               label(for="{{c.actionId}}" ng-if="!c.link") {{c.a}}
       .one.wide.column
