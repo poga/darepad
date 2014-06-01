@@ -7,6 +7,7 @@ app = angular.module \app, <[angularLocalStorage]>
 .controller \appCtrl, ($scope, storage, $location, $http, $anchorScroll, $window) !->
   do
     id = $location.path!substr 1
+    $scope.pad-id = id
     #csv <~ $http.get "https://www.ethercalc.org/_/#id/csv" .success _
     csv <- $http.get "/#id.csv" .success _
     $scope.csv = CSV.parse csv
@@ -51,7 +52,7 @@ app = angular.module \app, <[angularLocalStorage]>
         url = row.1 if row.1
         attrs = JSON.parse row.2 if row.2
         a = row.0.replace /^\-/, ''
-        a-id = CryptoJS.MD5(a).toString(CryptoJS.enc.Hex)
+        a-id = CryptoJS.MD5("#{$scope.pad-id}-#a").toString(CryptoJS.enc.Hex)
         $scope.contents.push a: a, actionId: a-id, link: url, attrs: attrs
         $scope.register a-id, false
 
