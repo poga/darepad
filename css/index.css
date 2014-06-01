@@ -1,0 +1,13 @@
+.content {
+  font-family: 'PT Sans Caption', sans-serif;
+}
+.menu {
+  margin: 10px 10px;
+}
+.menu a {
+  display: block;
+  margin: 7px 0;
+}
+.menu .l2 {
+  padding-left: 20px;
+}

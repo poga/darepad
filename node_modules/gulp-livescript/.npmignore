@@ -1,0 +1,21 @@
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+*.sublime*
+
+### Project ###
+src
+test
+
+.travis.yml
+gulpfile.ls
