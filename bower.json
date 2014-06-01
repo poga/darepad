@@ -20,6 +20,7 @@
     "angularjs": "*",
     "semantic-ui": "~0.17.0",
     "angular-cookies": "~1.2.16",
-    "angularLocalStorage": "~0.1.7"
+    "angularLocalStorage": "~0.1.7",
+    "csv-js": "*"
   }
 }

@@ -10,3 +10,9 @@ bower_components
 
 /app/app.js
 /app/darepad.js
+
+/css/
+
+/index.html
+
+*.csv

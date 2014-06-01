@@ -17,27 +17,28 @@
     "url": "git://github.com/poga/darepad.git"
   },
   "scripts": {
-    "prepublish": "./node_modules/gulp/bin/gulp.js --require LiveScript prepublish",
+    "prepublish": "./node_modules/gulp/bin/gulp.js --require LiveScript",
     "dev": "./node_modules/gulp/bin/gulp.js --require LiveScript dev"
   },
   "engines": {
     "node": "*"
   },
-  "dependencies": {
-    "htmlparser2": "~3.4.0",
-    "marked": "~0.3.0",
-    "jade": "~1.1.5",
-    "ncp": "~0.5.0",
-    "crypto-js": "~3.1.2",
-    "nomnom": "~1.6.2"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "LiveScript": "1.2.x",
+    "crypto-js": "*",
+    "express": "*",
+    "jade": "*",
+    "LiveScript": "*",
+    "gulp": "*",
+    "gulp-util": "*",
+    "gulp-stylus": "*",
+    "nib": "*",
+    "gulp-livescript": "~0.3.0",
+    "gulp-jade": "*",
+    "gulp-livereload": "*",
+    "connect-livereload": "*",
+    "gulp-plumber": "*",
     "browserify": "~3.24.11",
-    "gulp-util": "~2.2.14",
-    "gulp": "~3.5.2",
-    "gulp-livescript": "~0.1.1",
-    "gulp-browserify": "~0.4.2",
-    "gulp-concat": "~2.1.7"
+    "gulp-browserify": "~0.4.2"
   }
 }
