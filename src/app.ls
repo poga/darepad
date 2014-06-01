@@ -7,8 +7,8 @@ app = angular.module \app, <[angularLocalStorage]>
 .controller \appCtrl, ($scope, storage, $location, $http, $anchorScroll) !->
   do
     id = $location.path!substr 1
-    #csv <~ $http.get "https://www.ethercalc.org/_/#id/csv" .success _
-    csv <- $http.get "/#id.csv" .success _
+    csv <~ $http.get "https://www.ethercalc.org/_/#id/csv" .success _
+    #csv <- $http.get "/#id.csv" .success _
     $scope.csv = CSV.parse csv
 
   storage.bind $scope, 'progress', defaultValue: {}
