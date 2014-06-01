@@ -1,6 +1,6 @@
-html(ng-app="app")
+html(ng-app="app" ng-controller="appCtrl")
   head
-    title DarePad
+    title {{padTitle}}
     meta(charset="utf-8")
     // vendor
     link(rel="stylesheet" href="./bower_components/semantic-ui/build/packaged/css/semantic.min.css")
@@ -13,7 +13,7 @@ html(ng-app="app")
     // app
     script(src="./lib/app.js")
     link(rel="stylesheet" href="./css/index.css")
-  body(ng-controller="appCtrl")
+  body()
     .ui.grid.stackable
       .one.wide.column
       .three.wide.column

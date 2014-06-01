@@ -15,6 +15,7 @@ app = angular.module \app, <[angularLocalStorage]>
   storage.bind $scope, 'progress', defaultValue: {}
   $scope.contents = []
   $scope.headers = []
+  $scope.pad-title = void
 
   $scope.register = (id, default-value) ->
     $scope.progress[id] = default-value if $scope.progress[id] == void
@@ -45,6 +46,7 @@ app = angular.module \app, <[angularLocalStorage]>
         o = h: h, lvl: lvl, hId: h-id
         $scope.contents.push o
         $scope.headers.push(o <<< href: "\##{h-id}")
+        $scope.pad-title = h unless $scope.pad-title
       p: (row) ->
         $scope.contents.push p: row.0
       a: (row) ->
