@@ -15,25 +15,26 @@ html(ng-app="app" ng-controller="appCtrl")
     link(rel="stylesheet" href="./css/index.css")
   body()
     .ui.grid.stackable
-      .one.wide.column
-      .three.wide.column
-        .side
+      .row.equal.height
+        .one.wide.column(ng-if="!hackpad")
+        .two.wide.column
           .ui.successful.progress
             .bar(style="width:{{percentage}}%")
           .menu
             .m(ng-repeat="m in headers")
               a(ng-class="{l1: m.lvl == 1, l2: m.lvl == 2}" href="{{m.href}}" ng-click="gotoHash()") {{m.h}}
           .ui.fluid.button(ng-click="reset()") 清除紀錄
-      .ten.wide.column
-        .content
-          .x(ng-repeat="c in contents")
-            p(ng-if="c.p") {{c.p}}
-            h1(ng-if="c.lvl == 1" id="{{c.hId}}") {{c.h}}
-            h2(ng-if="c.lvl == 2" id="{{c.hId}}") {{c.h}}
-            .ui.checkbox(ng-if="c.a")
-              input(id="{{c.actionId}}" type="checkbox" ng-model="progress[c.actionId]")
-              label(for="{{c.actionId}}" ng-if="c.link")
-                a(href="{{c.link}}" target="_blank" ng-if="!c.attrs.popup") {{c.a}}
-                a(href="" ng-click="open(c.link)" ng-if="c.attrs.popup") {{c.a}}
-              label(for="{{c.actionId}}" ng-if="!c.link") {{c.a}}
-      .one.wide.column
+        .wide.column(ng-class="{true: 'ten', false: 'seven'}[hackpad==undefined]")
+          .content
+            .x(ng-repeat="c in contents")
+              p(ng-if="c.p") {{c.p}}
+              h1(ng-if="c.lvl == 1" id="{{c.hId}}") {{c.h}}
+              h2(ng-if="c.lvl == 2" id="{{c.hId}}") {{c.h}}
+              .ui.checkbox(ng-if="c.a")
+                input(id="{{c.actionId}}" type="checkbox" ng-model="progress[c.actionId]")
+                label(for="{{c.actionId}}" ng-if="c.link")
+                  a(href="{{c.link}}" target="_blank" ng-if="!c.attrs.popup") {{c.a}}
+                  a(href="" ng-click="open(c.link)" ng-if="c.attrs.popup") {{c.a}}
+                label(for="{{c.actionId}}" ng-if="!c.link") {{c.a}}
+        .seven.wide.column(ng-if="hackpad")
+          iframe(src="{{hackpad}}" width="100%" height="100%" ng-if="hackpad")
