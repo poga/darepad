@@ -26,7 +26,7 @@ html(ng-app="app" ng-controller="appCtrl")
           .ui.fluid.button(ng-click="reset()") 清除紀錄
           p
             a(href="https://www.ethercalc.com/{{padId}}" target="_blank") Edit this pad
-        .wide.column.content(ng-class="{true: 'ten', false: 'seven'}[hackpad==undefined]")
+        .wide.column.content(ng-class="{true: 'ten', false: 'five'}[hackpad==undefined]")
           .c(ng-repeat="c in contents")
             p(ng-if="c.p") {{c.p}}
             h1(ng-if="c.lvl == 1" id="{{c.hId}}") {{c.h}}
@@ -37,5 +37,5 @@ html(ng-app="app" ng-controller="appCtrl")
                 a(href="{{c.link}}" target="_blank" ng-if="!c.attrs.popup") {{c.a}}
                 a(href="" ng-click="open(c.link)" ng-if="c.attrs.popup") {{c.a}}
               label(for="{{c.actionId}}" ng-if="!c.link") {{c.a}}
-        .seven.wide.column.embed(ng-if="hackpad")
+        .eight.wide.column.embed(ng-if="hackpad")
           iframe(src="{{hackpad}}" width="100%" height="100%" ng-if="hackpad")
