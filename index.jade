@@ -24,6 +24,8 @@ html(ng-app="app" ng-controller="appCtrl")
             .m(ng-repeat="m in headers")
               a(ng-class="{l1: m.lvl == 1, l2: m.lvl == 2}" href="{{m.href}}" ng-click="gotoHash()") {{m.h}}
           .ui.fluid.button(ng-click="reset()") 清除紀錄
+          p
+            a(href="https://www.ethercalc.com/{{padId}}" target="_blank") Edit this pad
         .wide.column(ng-class="{true: 'ten', false: 'seven'}[hackpad==undefined]")
           .content
             .x(ng-repeat="c in contents")
