@@ -4,7 +4,7 @@ app = angular.module \app, <[angularLocalStorage]>
 .config ($locationProvider) ->
   $locationProvider.html5Mode yes
 
-.controller \appCtrl, ($scope, storage, $location, $http, $anchorScroll, $window) !->
+.controller \appCtrl, ($scope, storage, $location, $http, $anchorScroll, $window, $sce) !->
   do
     id = $location.path!substr 1
     $scope.pad-id = id
@@ -58,7 +58,9 @@ app = angular.module \app, <[angularLocalStorage]>
         $scope.contents.push a: a, actionId: a-id, link: url, attrs: attrs
         $scope.register a-id, false
 
+    $scope.hackpad = $sce.trustAsResourceUrl(parsed.0.3) if parsed.0.length > 3
     parsed.shift! # remove header
+
     for x, i in parsed
       switch
       | x[0][0] == "#" => parse.h x
