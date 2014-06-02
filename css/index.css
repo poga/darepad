@@ -1,3 +1,6 @@
+body {
+  margin: 0;
+}
 .content {
   font-family: 'PT Sans Caption', sans-serif;
 }
@@ -10,4 +13,14 @@
 }
 .menu .l2 {
   padding-left: 20px;
+}
+.row {
+  min-height: 1280px;
+}
+.side {
+  padding-top: 20px;
+  background: url("/images/squared_metal.png");
+}
+.content {
+  padding-top: 20px;
 }
