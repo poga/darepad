@@ -1,26 +1,37 @@
 body {
   margin: 0;
-}
-.content {
   font-family: 'PT Sans Caption', sans-serif;
 }
-.menu {
-  margin: 10px 10px;
+a {
+  text-decoration: none;
+  color: #3b72dd;
 }
-.menu a {
-  display: block;
-  margin: 7px 0;
+a:visited {
+  color: #800080;
 }
-.menu .l2 {
-  padding-left: 20px;
+a:hover {
+  text-decoration: underline;
 }
 .row {
   min-height: 1280px;
 }
-.side {
+.row .side {
   padding-top: 20px;
-  background: url("/images/squared_metal.png");
+  font-size: 13px;
 }
-.content {
+.row .side .menu {
+  margin: 20px 1px;
+}
+.row .side .menu .m a {
+  display: block;
+  margin: 7px 0;
+}
+.row .side .menu .l2 {
+  padding-left: 20px;
+}
+.row .content {
   padding-top: 20px;
+}
+.row .content .ui.checkbox {
+  margin: 5px 0;
 }
