@@ -8,8 +8,8 @@ app = angular.module \app, <[angularLocalStorage]>
   do
     id = $location.path!substr 1
     $scope.pad-id = id
-    csv <~ $http.get "https://www.ethercalc.org/_/#id/csv" .success _
-    #csv <- $http.get "/#id.csv" .success _
+    #csv <~ $http.get "https://www.ethercalc.org/_/#id/csv" .success _
+    csv <- $http.get "/#id.csv" .success _
     $scope.csv = CSV.parse csv
 
   storage.bind $scope, 'progress', defaultValue: {}
@@ -58,7 +58,6 @@ app = angular.module \app, <[angularLocalStorage]>
         $scope.contents.push a: a, actionId: a-id, link: url, attrs: attrs
         $scope.register a-id, false
 
-    $scope.hackpad = $sce.trustAsResourceUrl(parsed.0.3) if parsed.0.length > 3
     parsed.shift! # remove header
 
     for x, i in parsed
