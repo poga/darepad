@@ -48,7 +48,8 @@ app = angular.module \app, <[angularLocalStorage]>
         $scope.headers.push(o <<< href: "\##{h-id}")
         $scope.pad-title = h unless $scope.pad-title
       p: (row) ->
-        $scope.contents.push p: row.0
+        console.log row.0
+        $scope.contents.push p: $sce.trustAsHtml(row.0)
       a: (row) ->
         var url
         url = row.1 if row.1
