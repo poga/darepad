@@ -26,6 +26,13 @@ html(ng-app="app" ng-controller="appCtrl")
           .ui.fluid.button(ng-click="reset()") 清除紀錄
           p
             a(href="https://www.ethercalc.com/{{padId}}" target="_blank") Edit this pad
+          p
+            iframe(src="/github-btn.html?user=poga&repo=darepad&type=watch&count=true"
+              allowtransparency="true"
+              frameborder="0"
+              scrolling="0"
+              width="62"
+              height="20")
         .ten.wide.column.content
           .c(ng-repeat="c in contents")
             p(ng-if="c.p") {{c.p}}
