@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e -x
+git checkout gh-pages
+git merge master
+npm run prepublish
+cp index.html 404.html
+git add .
+git commit -m 'deploy'
+git push
+
+git checkout master
+bower i
