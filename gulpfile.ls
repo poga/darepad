@@ -1,3 +1,6 @@
+GA_ID = 'UA-51640094-1'
+DOMAIN = 'darepad.org'
+
 require! <[gulp path]>
 gutil = require 'gulp-util'
 stylus = require 'gulp-stylus'
@@ -41,7 +44,7 @@ gulp.task \ls ->
 gulp.task \jade ->
   gulp.src paths.jade
     .pipe plumber!
-    .pipe jade!
+    .pipe jade locals: googleAnalytics: GA_ID, domain: DOMAIN
     .pipe gulp.dest "."
 
 gulp.task \watch ->
