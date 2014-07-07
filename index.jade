@@ -3,21 +3,21 @@ html(ng-app="app" ng-controller="appCtrl")
     title(ng-bind="padTitle") DarePad
     meta(charset="utf-8")
     // vendor
-    link(rel="stylesheet" href="./bower_components/semantic-ui/build/packaged/css/semantic.min.css")
-    script(src="./bower_components/jquery/dist/jquery.min.js")
-    script(src="./bower_components/csv-js/csv.js")
-    script(src="./bower_components/angular/angular.min.js")
-    script(src="./bower_components/semantic-ui/build/packaged/javascript/semantic.min.js")
-    script(src="./bower_components/angular-cookies/angular-cookies.min.js")
-    script(src="./bower_components/angularLocalStorage/src/angularLocalStorage.js")
+    link(rel="stylesheet" href="/bower_components/semantic-ui/build/packaged/css/semantic.min.css")
+    script(src="/bower_components/jquery/dist/jquery.min.js")
+    script(src="/bower_components/csv-js/csv.js")
+    script(src="/bower_components/angular/angular.min.js")
+    script(src="/bower_components/semantic-ui/build/packaged/javascript/semantic.min.js")
+    script(src="/bower_components/angular-cookies/angular-cookies.min.js")
+    script(src="/bower_components/angularLocalStorage/src/angularLocalStorage.js")
     // app
-    script(src="./lib/app.js")
-    link(rel="stylesheet" href="./css/index.css")
+    script(src="/lib/app.js")
+    link(rel="stylesheet" href="/css/index.css")
   body
     .ui.grid.stackable
       .row.equal.height
-        .three.wide.column
-        .two.wide.column.side
+        .three.wide.column(ng-if="!embedding")
+        .wide.column.side(ng-class="{two: !embedding, four: embedding}")
           .ui.successful.progress
             .bar(style="width:{{percentage}}%")
           .menu
@@ -33,7 +33,7 @@ html(ng-app="app" ng-controller="appCtrl")
               scrolling="0"
               width="62"
               height="20")
-        .eight.wide.column.content
+        .eight.wide.column.content(ng-class="{two: !embedding, twelve: embedding}")
           .c(ng-repeat="c in contents")
             p(ng-if="c.p" ng-cloak ng-bind-html="c.p")
             h1(ng-if="c.lvl == 1" id="{{c.hId}}" ng-cloak) {{c.h}}
@@ -44,7 +44,7 @@ html(ng-app="app" ng-controller="appCtrl")
                 a(href="{{c.link}}" target="_blank" ng-if="!c.attrs.popup") {{c.a}}
                 a(href="" ng-click="open(c.link)" ng-if="c.attrs.popup") {{c.a}}
               label(for="{{c.actionId}}" ng-if="!c.link") {{c.a}}
-        .three.wide.column
+        .three.wide.column(ng-if="!embedding")
 
     - if (typeof(googleAnalytics) !== 'undefined')
       script(type="text/javascript").
