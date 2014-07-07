@@ -7,6 +7,10 @@ app = angular.module \app, <[angularLocalStorage]>
 .controller \appCtrl, ($scope, storage, $location, $http, $anchorScroll, $window, $sce) !->
   do
     id = $location.path!substr 1
+    if id == /\/embed\/?/
+      $scope.embedding = true
+      id = id.replace /\/embed\/?/, ''
+    console.log $scope.embedding
     $scope.pad-id = id
     csv <~ $http.get "https://www.ethercalc.org/_/#id/csv" .success _
     #csv <- $http.get "/#id.csv" .success _
